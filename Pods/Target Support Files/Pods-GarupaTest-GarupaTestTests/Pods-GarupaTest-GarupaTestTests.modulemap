@@ -1,0 +1,6 @@
+module Pods_GarupaTest_GarupaTestTests {
+  umbrella header "Pods-GarupaTest-GarupaTestTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
