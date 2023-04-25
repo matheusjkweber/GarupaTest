@@ -8,7 +8,9 @@
 import UIKit
 import SnapKit
 
-class ListBeersView: UIView {
+class ListBeersView: UIView, ListBeersViewing {
+    weak var delegate: ListBeersViewDelegate?
+    
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "List of Beers"
@@ -64,7 +66,11 @@ class ListBeersView: UIView {
         }
     }
     
-    func getCollectionView() -> UICollectionView {
-        collectionView
+    func setup() {
+        prepareCollectionView()
+    }
+    
+    private func prepareCollectionView() {
+        self.delegate?.configureCollectionView(for: collectionView)
     }
 }
