@@ -13,6 +13,16 @@ protocol ListBeersViewDelegate: AnyObject {
 
 class ListBeersViewModel: NSObject {
     weak var delegate: ListBeersPresenterDelegate?
+    
+    var state: ViewState<ButtonAction> {
+        didSet {
+            self.delegate?.updateState(state: state)
+        }
+    }
+    
+    override init() {
+        self.state = .success
+    }
 }
 
 extension ListBeersViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

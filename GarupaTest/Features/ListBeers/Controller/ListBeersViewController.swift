@@ -9,6 +9,7 @@ import UIKit
 
 protocol ListBeersPresenterDelegate: AnyObject {
     func presentBeerDetail(withViewModel: BeerDetailViewModel)
+    func updateState(state: ViewState<ButtonAction>)
 }
 
 protocol ListBeersViewing: UIView {
@@ -16,14 +17,14 @@ protocol ListBeersViewing: UIView {
     func setup()
 }
 
-class ListBeersViewController: UIViewController {
+class ListBeersViewController: BaseViewController {
     private var viewModel: ListBeersViewModel?
     private let mainView: ListBeersViewing?
     
     init(viewModel: ListBeersViewModel) {
         self.viewModel = viewModel
         self.mainView = ListBeersView()
-        super.init(nibName: nil, bundle: nil)
+        super.init(state: .success)
     }
     
     required init?(coder: NSCoder) {
@@ -47,6 +48,10 @@ class ListBeersViewController: UIViewController {
         viewModel?.delegate = self
         mainView?.delegate = viewModel
         mainView?.setup()
+    }
+    
+    internal func updateState(state: ViewState<ButtonAction>) {
+        self.state = state
     }
 }
 
