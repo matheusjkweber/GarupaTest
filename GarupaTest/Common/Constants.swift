@@ -7,4 +7,5 @@
 
 struct Constants {
     static let beerTemplate = "beer-template"
+    static let errorIcon = "ic-error-outline"
 }
