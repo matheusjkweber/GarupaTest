@@ -8,7 +8,9 @@
 import UIKit
 import SnapKit
 
-class BeerDetailView: UIView {
+class BeerDetailView: UIView, BeerDetailViewing {
+    weak var delegate: BeerDetailViewDelegate?
+    
     fileprivate lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         return scrollView
@@ -49,23 +51,74 @@ class BeerDetailView: UIView {
     
     fileprivate lazy var descriptionLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.text = "Beer Subtitle"
+        titleLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et quam ac neque commodo placerat. In sodales purus nec erat congue, vitae dictum metus sollicitudin. Mauris at lorem suscipit, sodales orci bibendum, scelerisque quam. Nam gravida est vitae elit vulputate consectetur. Nulla facilisi. Etiam sollicitudin vel elit et ultricies. Maecenas ante ante, pharetra in metus non, eleifend sodales risus. Vestibulum eget mauris in magna lacinia aliquet ut ut nulla. Duis ornare ante ante, eu vehicula odio consequat sed. Vestibulum eget nisl et turpis volutpat lobortis et ac ex. Duis tincidunt ligula eros, scelerisque porttitor lectus congue et. Aliquam elementum ac nisl eget ornare. Mauris nec turpis dui. Donec nec justo ut mauris tristique congue eget et justo. Fusce tempor libero vel pellentesque rhoncus."
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.systemFont(ofSize: 16.0)
         return titleLabel
     }()
     
-    fileprivate lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        return stackView
+    fileprivate lazy var beerExtraInfoTableView = {
+        let tableView = UITableView()
+        tableView.tag = 0
+        return tableView
     }()
     
-    fileprivate lazy var
+    fileprivate lazy var ingredientsTitleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = "Ingredients"
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.systemFont(ofSize: 16.0)
+        return titleLabel
+    }()
+    
+    fileprivate lazy var ingredientsTableView = {
+        let tableView = UITableView()
+        tableView.tag = 1
+        return tableView
+    }()
+    
+    fileprivate lazy var foodPairingTitleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = "Food Pairing"
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.systemFont(ofSize: 16.0)
+        return titleLabel
+    }()
+    
+    fileprivate lazy var foodPairingTableView = {
+        let tableView = UITableView()
+        tableView.tag = 2
+        return tableView
+    }()
+    
+    fileprivate lazy var brewerTipsLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et quam ac neque commodo placerat. In sodales purus nec erat congue, vitae dictum metus sollicitudin. Mauris at lorem suscipit, sodales orci bibendum, scelerisque quam. Nam gravida est vitae elit vulputate consectetur. Nulla facilisi. Etiam sollicitudin vel elit et ultricies. Maecenas ante ante, pharetra in metus non, eleifend sodales risus. Vestibulum eget mauris in magna lacinia aliquet ut ut nulla. Duis ornare ante ante, eu vehicula odio consequat sed. Vestibulum eget nisl et turpis volutpat lobortis et ac ex. Duis tincidunt ligula eros, scelerisque porttitor lectus congue et. Aliquam elementum ac nisl eget ornare. Mauris nec turpis dui. Donec nec justo ut mauris tristique congue eget et justo. Fusce tempor libero vel pellentesque rhoncus."
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.systemFont(ofSize: 14.0)
+        return titleLabel
+    }()
+    
+    fileprivate lazy var contributedTitleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = "Contributed by"
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.systemFont(ofSize: 12.0)
+        return titleLabel
+    }()
+    
+    fileprivate lazy var contributedValueLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = "Matheus Weber"
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.systemFont(ofSize: 12.0)
+        titleLabel.textAlignment = .right
+        return titleLabel
+    }()
     
     init() {
         super.init(frame: CGRect.zero)
         setupView()
-        setupLayout()
     }
     
     override init(frame: CGRect) {
@@ -80,6 +133,20 @@ class BeerDetailView: UIView {
         self.backgroundColor = .white
         addSubview(scrollView)
         scrollView.addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(beerImageView)
+        containerView.addSubview(subtitleLabel)
+        containerView.addSubview(descriptionLabel)
+        containerView.addSubview(firstBrewedLabel)
+        containerView.addSubview(beerExtraInfoTableView)
+        containerView.addSubview(ingredientsTitleLabel)
+        containerView.addSubview(ingredientsTableView)
+        containerView.addSubview(foodPairingTitleLabel)
+        containerView.addSubview(foodPairingTableView)
+        containerView.addSubview(brewerTipsLabel)
+        containerView.addSubview(contributedTitleLabel)
+        containerView.addSubview(contributedValueLabel)
+        setupLayout()
     }
     
     private func setupLayout() {
@@ -95,28 +162,94 @@ class BeerDetailView: UIView {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16.0)
-            $0.left.right.equalToSuperview().offset(8.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
         }
         
         subtitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(4.0)
-            $0.left.right.equalToSuperview().offset(8.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
         }
         
         beerImageView.snp.makeConstraints {
             $0.top.equalTo(subtitleLabel.snp.bottom).offset(4.0)
-            $0.left.right.equalToSuperview().offset(8.0)
+            $0.height.equalTo(300.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
         }
         
         firstBrewedLabel.snp.makeConstraints {
             $0.top.equalTo(beerImageView.snp.bottom).offset(4.0)
-            $0.left.right.equalToSuperview().offset(8.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
         }
         
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(firstBrewedLabel.snp.bottom).offset(8.0)
-            $0.left.right.equalToSuperview().offset(8.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
+        }
+        
+        beerExtraInfoTableView.snp.makeConstraints {
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(8.0)
+            $0.height.equalTo(300.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
+        }
+        
+        ingredientsTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(beerExtraInfoTableView.snp.bottom).offset(8.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
+        }
+        
+        ingredientsTableView.snp.makeConstraints {
+            $0.top.equalTo(ingredientsTitleLabel.snp.bottom).offset(8.0)
+            $0.height.equalTo(300.0)
+            $0.left.right.equalToSuperview()
+        }
+        
+        foodPairingTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(ingredientsTableView.snp.bottom).offset(8.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
+        }
+        
+        foodPairingTableView.snp.makeConstraints {
+            $0.top.equalTo(foodPairingTitleLabel.snp.bottom).offset(8.0)
+            $0.height.equalTo(300.0)
+            $0.left.right.equalToSuperview()
+        }
+        
+        brewerTipsLabel.snp.makeConstraints {
+            $0.top.equalTo(foodPairingTableView.snp.bottom).offset(8.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
+        }
+        
+        contributedTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(brewerTipsLabel.snp.bottom).offset(8.0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.width.equalTo(ScreenSize.width / 2 - 8.0)
+            $0.bottom.equalToSuperview().offset(-24.0)
+        }
+        
+        contributedValueLabel.snp.makeConstraints {
+            $0.top.equalTo(brewerTipsLabel.snp.bottom).offset(8.0)
+            $0.width.equalTo(ScreenSize.width / 2 - 8.0)
+            $0.right.equalToSuperview().offset(-8.0)
+            $0.bottom.equalToSuperview().offset(-24.0)
         }
     }
-
+    
+    func setup() {
+        prepareTableViews()
+    }
+    
+    private func prepareTableViews() {
+        self.delegate?.configureTableView(for: beerExtraInfoTableView, withType: .extraInfo)
+        self.delegate?.configureTableView(for: ingredientsTableView, withType: .ingredients)
+        self.delegate?.configureTableView(for: foodPairingTableView, withType: .foodPairing)
+    }
 }

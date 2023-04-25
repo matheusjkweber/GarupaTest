@@ -40,6 +40,10 @@ class ListBeersViewController: UIViewController {
         layout.minimumLineSpacing = 8
         collectionView.collectionViewLayout = layout
     }
+    
+    private func presentBeerDetailVC(beerVM: BeerDetailViewModel) {
+        self.navigationController?.pushViewController(BeerDetailViewController(viewModel: beerVM), animated: true)
+    }
 }
 
 extension ListBeersViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -63,6 +67,6 @@ extension ListBeersViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        presentBeerDetailVC(beerVM: BeerDetailViewModel())
     }
 }

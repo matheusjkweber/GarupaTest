@@ -1,5 +1,5 @@
 //
-//  BeerTableViewCell.swift
+//  BeerExtraInfoTableViewCell.swift
 //  GarupaTest
 //
 //  Created by Matheus Weber on 24/04/23.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ReasonViewCell: UITableViewCell {
+class BeerExtraInfoTableViewCell: UITableViewCell {
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
