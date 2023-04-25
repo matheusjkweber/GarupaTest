@@ -7,66 +7,51 @@
 
 import UIKit
 
+protocol ListBeersPresenterDelegate: AnyObject {
+    func presentBeerDetail(withViewModel: BeerDetailViewModel)
+}
+
+protocol ListBeersViewing: UIView {
+    var delegate: ListBeersViewDelegate? { get set }
+    func setup()
+}
+
 class ListBeersViewController: UIViewController {
-    private let mainView = ListBeersView()
-    private var collectionView: UICollectionView?
+    private var viewModel: ListBeersViewModel?
+    private let mainView: ListBeersViewing?
+    
+    init(viewModel: ListBeersViewModel) {
+        self.viewModel = viewModel
+        self.mainView = ListBeersView()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupCollectionView()
+        linkViewModel()
     }
     
     override func loadView() {
+        guard let mainView = mainView else {
+            return
+        }
         view = mainView
         view.frame = CGRect(x: 0, y: 0, width: ScreenSize.width, height: ScreenSize.height)
     }
     
-    private func setupCollectionView() {
-        self.collectionView = mainView.getCollectionView()
-        
-        guard let collectionView = collectionView else {
-            return
-        }
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(BeerColectionViewCell.self, forCellWithReuseIdentifier: BeerColectionViewCell.className)
-        collectionView.reloadData()
-        
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
-        layout.minimumInteritemSpacing = 4
-        layout.minimumLineSpacing = 8
-        collectionView.collectionViewLayout = layout
-    }
-    
-    private func presentBeerDetailVC(beerVM: BeerDetailViewModel) {
-        self.navigationController?.pushViewController(BeerDetailViewController(viewModel: beerVM), animated: true)
+    private func linkViewModel() {
+        viewModel?.delegate = self
+        mainView?.delegate = viewModel
+        mainView?.setup()
     }
 }
 
-extension ListBeersViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BeerColectionViewCell.className, for: indexPath) as? BeerColectionViewCell else {
-            fatalError("Must be provide a BeerColectionViewCell")
-        }
-        cell.setup()
-
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 150)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presentBeerDetailVC(beerVM: BeerDetailViewModel())
+extension ListBeersViewController: ListBeersPresenterDelegate {
+    func presentBeerDetail(withViewModel viewModel: BeerDetailViewModel) {
+        self.navigationController?.pushViewController(BeerDetailViewController(viewModel: viewModel), animated: true)
     }
 }
