@@ -8,4 +8,9 @@
 class MaltModel {
     var name: String
     var amount: AmountModel
+    
+    init(name: String, amount: AmountModel) {
+        self.name = name
+        self.amount = amount
+    }
 }

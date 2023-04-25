@@ -31,6 +31,11 @@
 		2FEA5C7F29F611ED006F68B1 /* AmountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5C7E29F611EC006F68B1 /* AmountModel.swift */; };
 		2FEA5C8129F6123A006F68B1 /* HopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5C8029F6123A006F68B1 /* HopModel.swift */; };
 		2FEA5C8329F61260006F68B1 /* IngredientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5C8229F61260006F68B1 /* IngredientsModel.swift */; };
+		2FEA5CBD29F83702006F68B1 /* BeerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CB429F83702006F68B1 /* BeerDetailViewModel.swift */; };
+		2FEA5CBE29F83702006F68B1 /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CB629F83702006F68B1 /* BeerDetailViewController.swift */; };
+		2FEA5CBF29F83702006F68B1 /* BeerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CB929F83702006F68B1 /* BeerDetailView.swift */; };
+		2FEA5CC029F83702006F68B1 /* BeerFoodPairingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CBA29F83702006F68B1 /* BeerFoodPairingTableViewCell.swift */; };
+		2FEA5CC129F83702006F68B1 /* BeerExtraInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CBB29F83702006F68B1 /* BeerExtraInfoTableViewCell.swift */; };
 		524C84E9F4C6B05011654B4C /* libPods-GarupaTest-GarupaTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1846AD67BDC0830FD166236 /* libPods-GarupaTest-GarupaTestTests.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +84,11 @@
 		2FEA5C7E29F611EC006F68B1 /* AmountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountModel.swift; sourceTree = "<group>"; };
 		2FEA5C8029F6123A006F68B1 /* HopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopModel.swift; sourceTree = "<group>"; };
 		2FEA5C8229F61260006F68B1 /* IngredientsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsModel.swift; sourceTree = "<group>"; };
+		2FEA5CB429F83702006F68B1 /* BeerDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDetailViewModel.swift; sourceTree = "<group>"; };
+		2FEA5CB629F83702006F68B1 /* BeerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDetailViewController.swift; sourceTree = "<group>"; };
+		2FEA5CB929F83702006F68B1 /* BeerDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDetailView.swift; sourceTree = "<group>"; };
+		2FEA5CBA29F83702006F68B1 /* BeerFoodPairingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerFoodPairingTableViewCell.swift; sourceTree = "<group>"; };
+		2FEA5CBB29F83702006F68B1 /* BeerExtraInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerExtraInfoTableViewCell.swift; sourceTree = "<group>"; };
 		4EE2BBCFE5D4F6DE2488862E /* libPods-GarupaTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GarupaTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB5E6A962F8FEDE65AE3732 /* Pods-GarupaTest-GarupaTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GarupaTest-GarupaTestTests.debug.xcconfig"; path = "Target Support Files/Pods-GarupaTest-GarupaTestTests/Pods-GarupaTest-GarupaTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95556E771A8A5BAE36653533 /* Pods-GarupaTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GarupaTest.release.xcconfig"; path = "Target Support Files/Pods-GarupaTest/Pods-GarupaTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +185,7 @@
 		2FEA5C5729F5DEAF006F68B1 /* ListBeers */ = {
 			isa = PBXGroup;
 			children = (
+				2FEA5CB229F83702006F68B1 /* BeerDetail */,
 				2FEA5C5C29F5DEFF006F68B1 /* Service */,
 				2FEA5C5B29F5DEFA006F68B1 /* ViewModel */,
 				2FEA5C5A29F5DEF6006F68B1 /* Model */,
@@ -251,6 +262,59 @@
 				2FEA5C6E29F60DD1006F68B1 /* NSObject+Ext.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		2FEA5CB229F83702006F68B1 /* BeerDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CB329F83702006F68B1 /* ViewModel */,
+				2FEA5CB529F83702006F68B1 /* BeerDetailViewController */,
+				2FEA5CB729F83702006F68B1 /* Model */,
+				2FEA5CB829F83702006F68B1 /* View */,
+				2FEA5CBC29F83702006F68B1 /* Service */,
+			);
+			name = BeerDetail;
+			path = GarupaTest/Features/BeerDetail;
+			sourceTree = SOURCE_ROOT;
+		};
+		2FEA5CB329F83702006F68B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CB429F83702006F68B1 /* BeerDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FEA5CB529F83702006F68B1 /* BeerDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CB629F83702006F68B1 /* BeerDetailViewController.swift */,
+			);
+			path = BeerDetailViewController;
+			sourceTree = "<group>";
+		};
+		2FEA5CB729F83702006F68B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2FEA5CB829F83702006F68B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CB929F83702006F68B1 /* BeerDetailView.swift */,
+				2FEA5CBA29F83702006F68B1 /* BeerFoodPairingTableViewCell.swift */,
+				2FEA5CBB29F83702006F68B1 /* BeerExtraInfoTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FEA5CBC29F83702006F68B1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		694C8E58F81BF24068EF0545 /* Pods */ = {
@@ -457,10 +521,15 @@
 				2FEA5C7F29F611ED006F68B1 /* AmountModel.swift in Sources */,
 				2FEA5C7929F61125006F68B1 /* TempModel.swift in Sources */,
 				2FEA5C6F29F60DD1006F68B1 /* NSObject+Ext.swift in Sources */,
+				2FEA5CC129F83702006F68B1 /* BeerExtraInfoTableViewCell.swift in Sources */,
+				2FEA5CBF29F83702006F68B1 /* BeerDetailView.swift in Sources */,
+				2FEA5CBE29F83702006F68B1 /* BeerDetailViewController.swift in Sources */,
 				2FEA5C7129F61027006F68B1 /* BeerModel.swift in Sources */,
 				2FEA5C6529F5E53E006F68B1 /* ListBeersView.swift in Sources */,
 				2FEA5C7B29F61192006F68B1 /* FermentationModel.swift in Sources */,
+				2FEA5CC029F83702006F68B1 /* BeerFoodPairingTableViewCell.swift in Sources */,
 				2FEA5C6029F5DFCF006F68B1 /* ListBeersViewController.swift in Sources */,
+				2FEA5CBD29F83702006F68B1 /* BeerDetailViewModel.swift in Sources */,
 				2FEA5C2729F5DD0D006F68B1 /* AppDelegate.swift in Sources */,
 				2FEA5C8129F6123A006F68B1 /* HopModel.swift in Sources */,
 				2FEA5C6D29F60AC9006F68B1 /* Constants.swift in Sources */,

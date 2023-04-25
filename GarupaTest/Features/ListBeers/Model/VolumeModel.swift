@@ -8,4 +8,9 @@
 class VolumeModel {
     var value: Int
     var unit: String
+    
+    init(value: Int, unit: String) {
+        self.value = value
+        self.unit = unit
+    }
 }

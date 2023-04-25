@@ -10,4 +10,11 @@ class HopModel {
     var amount: AmountModel
     var add: String
     var attribute: String
+    
+    init(name: String, amount: AmountModel, add: String, attribute: String) {
+        self.name = name
+        self.amount = amount
+        self.add = add
+        self.attribute = attribute
+    }
 }

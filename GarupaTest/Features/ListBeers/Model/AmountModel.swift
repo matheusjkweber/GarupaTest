@@ -8,4 +8,9 @@
 class AmountModel {
     var value: Float
     var unit: String
+    
+    init(value: Float, unit: String) {
+        self.value = value
+        self.unit = unit
+    }
 }

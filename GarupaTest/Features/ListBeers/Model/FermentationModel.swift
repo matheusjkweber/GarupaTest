@@ -7,4 +7,8 @@
 
 class FermentationModel {
     var temp: TempModel
+    
+    init(temp: TempModel) {
+        self.temp = temp
+    }
 }
