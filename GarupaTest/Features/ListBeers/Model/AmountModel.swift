@@ -5,11 +5,11 @@
 //  Created by Matheus Weber on 23/04/23.
 //
 
-class AmountModel {
+struct AmountModel: Codable {
     var value: Float
-    var unit: String
+    var unit: UnitType
     
-    init(value: Float, unit: String) {
+    init(value: Float, unit: UnitType) {
         self.value = value
         self.unit = unit
     }

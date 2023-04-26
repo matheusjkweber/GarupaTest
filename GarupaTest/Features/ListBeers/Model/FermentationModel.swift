@@ -5,7 +5,7 @@
 //  Created by Matheus Weber on 23/04/23.
 //
 
-class FermentationModel {
+struct FermentationModel: Codable {
     var temp: TempModel
     
     init(temp: TempModel) {

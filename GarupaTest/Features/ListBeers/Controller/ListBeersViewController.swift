@@ -17,11 +17,15 @@ protocol ListBeersViewing: UIView {
     func setup()
 }
 
+protocol ListBeersViewModelling: ViewModelling, ListBeersViewDelegate {
+    var delegate: ListBeersPresenterDelegate? { get set }
+}
+
 class ListBeersViewController: BaseViewController {
-    private var viewModel: ListBeersViewModel?
+    private var viewModel: ListBeersViewModelling?
     private let mainView: ListBeersViewing?
     
-    init(viewModel: ListBeersViewModel) {
+    init(viewModel: ListBeersViewModelling) {
         self.viewModel = viewModel
         self.mainView = ListBeersView()
         super.init(state: .success)
@@ -48,6 +52,7 @@ class ListBeersViewController: BaseViewController {
         viewModel?.delegate = self
         mainView?.delegate = viewModel
         mainView?.setup()
+        viewModel?.start()
     }
     
     internal func updateState(state: ViewState<ButtonAction>) {

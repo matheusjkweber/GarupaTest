@@ -41,6 +41,18 @@
 		2FEA5CC929F88BA6006F68B1 /* StateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CC829F88BA6006F68B1 /* StateProtocol.swift */; };
 		2FEA5CCB29F88BC4006F68B1 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CCA29F88BC4006F68B1 /* ProgressView.swift */; };
 		2FEA5CCD29F88BF0006F68B1 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CCC29F88BF0006F68B1 /* ErrorView.swift */; };
+		2FEA5CDE29F89A24006F68B1 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CD029F89A24006F68B1 /* NetworkManagerMock.swift */; };
+		2FEA5CDF29F89A24006F68B1 /* ParameterEnconding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CD229F89A24006F68B1 /* ParameterEnconding.swift */; };
+		2FEA5CE029F89A24006F68B1 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CD329F89A24006F68B1 /* JSONParameterEncoder.swift */; };
+		2FEA5CE129F89A24006F68B1 /* URLParameterEnconding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CD429F89A24006F68B1 /* URLParameterEnconding.swift */; };
+		2FEA5CE229F89A24006F68B1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CD629F89A24006F68B1 /* NetworkManager.swift */; };
+		2FEA5CE329F89A24006F68B1 /* GarupaEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CD829F89A24006F68B1 /* GarupaEndpoint.swift */; };
+		2FEA5CE429F89A24006F68B1 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CDA29F89A24006F68B1 /* HTTPTask.swift */; };
+		2FEA5CE529F89A24006F68B1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CDB29F89A24006F68B1 /* HTTPMethod.swift */; };
+		2FEA5CE629F89A24006F68B1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CDC29F89A24006F68B1 /* Router.swift */; };
+		2FEA5CE729F89A24006F68B1 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CDD29F89A24006F68B1 /* EndPointType.swift */; };
+		2FEA5CE929F89B01006F68B1 /* ListBeersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CE829F89B01006F68B1 /* ListBeersService.swift */; };
+		2FEA5CEB29F89D4B006F68B1 /* ViewModelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CEA29F89D4B006F68B1 /* ViewModelling.swift */; };
 		524C84E9F4C6B05011654B4C /* libPods-GarupaTest-GarupaTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1846AD67BDC0830FD166236 /* libPods-GarupaTest-GarupaTestTests.a */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +111,18 @@
 		2FEA5CC829F88BA6006F68B1 /* StateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateProtocol.swift; sourceTree = "<group>"; };
 		2FEA5CCA29F88BC4006F68B1 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		2FEA5CCC29F88BF0006F68B1 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		2FEA5CD029F89A24006F68B1 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
+		2FEA5CD229F89A24006F68B1 /* ParameterEnconding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEnconding.swift; sourceTree = "<group>"; };
+		2FEA5CD329F89A24006F68B1 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		2FEA5CD429F89A24006F68B1 /* URLParameterEnconding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEnconding.swift; sourceTree = "<group>"; };
+		2FEA5CD629F89A24006F68B1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2FEA5CD829F89A24006F68B1 /* GarupaEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarupaEndpoint.swift; sourceTree = "<group>"; };
+		2FEA5CDA29F89A24006F68B1 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		2FEA5CDB29F89A24006F68B1 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		2FEA5CDC29F89A24006F68B1 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		2FEA5CDD29F89A24006F68B1 /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		2FEA5CE829F89B01006F68B1 /* ListBeersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBeersService.swift; sourceTree = "<group>"; };
+		2FEA5CEA29F89D4B006F68B1 /* ViewModelling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelling.swift; sourceTree = "<group>"; };
 		4EE2BBCFE5D4F6DE2488862E /* libPods-GarupaTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GarupaTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB5E6A962F8FEDE65AE3732 /* Pods-GarupaTest-GarupaTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GarupaTest-GarupaTestTests.debug.xcconfig"; path = "Target Support Files/Pods-GarupaTest-GarupaTestTests/Pods-GarupaTest-GarupaTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95556E771A8A5BAE36653533 /* Pods-GarupaTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GarupaTest.release.xcconfig"; path = "Target Support Files/Pods-GarupaTest/Pods-GarupaTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +183,7 @@
 		2FEA5C2529F5DD0D006F68B1 /* GarupaTest */ = {
 			isa = PBXGroup;
 			children = (
+				2FEA5CCE29F89A24006F68B1 /* API */,
 				2FEA5C6329F5E518006F68B1 /* App */,
 				2FEA5C6629F5E7FC006F68B1 /* Common */,
 				2FEA5C5629F5DEA6006F68B1 /* Features */,
@@ -250,6 +275,7 @@
 		2FEA5C5C29F5DEFF006F68B1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2FEA5CE829F89B01006F68B1 /* ListBeersService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -336,8 +362,66 @@
 				2FEA5CC829F88BA6006F68B1 /* StateProtocol.swift */,
 				2FEA5CCA29F88BC4006F68B1 /* ProgressView.swift */,
 				2FEA5CCC29F88BF0006F68B1 /* ErrorView.swift */,
+				2FEA5CEA29F89D4B006F68B1 /* ViewModelling.swift */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		2FEA5CCE29F89A24006F68B1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CCF29F89A24006F68B1 /* Mock */,
+				2FEA5CD129F89A24006F68B1 /* Encoding */,
+				2FEA5CD529F89A24006F68B1 /* Manager */,
+				2FEA5CD729F89A24006F68B1 /* EndPoint */,
+				2FEA5CD929F89A24006F68B1 /* Service */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2FEA5CCF29F89A24006F68B1 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CD029F89A24006F68B1 /* NetworkManagerMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		2FEA5CD129F89A24006F68B1 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CD229F89A24006F68B1 /* ParameterEnconding.swift */,
+				2FEA5CD329F89A24006F68B1 /* JSONParameterEncoder.swift */,
+				2FEA5CD429F89A24006F68B1 /* URLParameterEnconding.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		2FEA5CD529F89A24006F68B1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CD629F89A24006F68B1 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2FEA5CD729F89A24006F68B1 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CD829F89A24006F68B1 /* GarupaEndpoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		2FEA5CD929F89A24006F68B1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CDA29F89A24006F68B1 /* HTTPTask.swift */,
+				2FEA5CDB29F89A24006F68B1 /* HTTPMethod.swift */,
+				2FEA5CDC29F89A24006F68B1 /* Router.swift */,
+				2FEA5CDD29F89A24006F68B1 /* EndPointType.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		694C8E58F81BF24068EF0545 /* Pods */ = {
@@ -539,24 +623,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FEA5CE929F89B01006F68B1 /* ListBeersService.swift in Sources */,
 				2FEA5C8329F61260006F68B1 /* IngredientsModel.swift in Sources */,
+				2FEA5CDF29F89A24006F68B1 /* ParameterEnconding.swift in Sources */,
 				2FEA5C6829F5E809006F68B1 /* ScreenSize.swift in Sources */,
 				2FEA5C7F29F611ED006F68B1 /* AmountModel.swift in Sources */,
 				2FEA5C7929F61125006F68B1 /* TempModel.swift in Sources */,
 				2FEA5CC329F87618006F68B1 /* ListBeersViewModel.swift in Sources */,
+				2FEA5CE329F89A24006F68B1 /* GarupaEndpoint.swift in Sources */,
 				2FEA5C6F29F60DD1006F68B1 /* NSObject+Ext.swift in Sources */,
+				2FEA5CE629F89A24006F68B1 /* Router.swift in Sources */,
 				2FEA5CC129F83702006F68B1 /* BeerExtraInfoTableViewCell.swift in Sources */,
 				2FEA5CBF29F83702006F68B1 /* BeerDetailView.swift in Sources */,
 				2FEA5CBE29F83702006F68B1 /* BeerDetailViewController.swift in Sources */,
 				2FEA5CC929F88BA6006F68B1 /* StateProtocol.swift in Sources */,
 				2FEA5C7129F61027006F68B1 /* BeerModel.swift in Sources */,
+				2FEA5CDE29F89A24006F68B1 /* NetworkManagerMock.swift in Sources */,
 				2FEA5CCD29F88BF0006F68B1 /* ErrorView.swift in Sources */,
 				2FEA5C6529F5E53E006F68B1 /* ListBeersView.swift in Sources */,
+				2FEA5CE229F89A24006F68B1 /* NetworkManager.swift in Sources */,
 				2FEA5C7B29F61192006F68B1 /* FermentationModel.swift in Sources */,
 				2FEA5CC029F83702006F68B1 /* BeerFoodPairingTableViewCell.swift in Sources */,
 				2FEA5C6029F5DFCF006F68B1 /* ListBeersViewController.swift in Sources */,
 				2FEA5CBD29F83702006F68B1 /* BeerDetailViewModel.swift in Sources */,
+				2FEA5CE729F89A24006F68B1 /* EndPointType.swift in Sources */,
+				2FEA5CE429F89A24006F68B1 /* HTTPTask.swift in Sources */,
 				2FEA5C2729F5DD0D006F68B1 /* AppDelegate.swift in Sources */,
+				2FEA5CE029F89A24006F68B1 /* JSONParameterEncoder.swift in Sources */,
 				2FEA5CCB29F88BC4006F68B1 /* ProgressView.swift in Sources */,
 				2FEA5C8129F6123A006F68B1 /* HopModel.swift in Sources */,
 				2FEA5C6D29F60AC9006F68B1 /* Constants.swift in Sources */,
@@ -565,8 +658,11 @@
 				2FEA5CC729F88B5A006F68B1 /* BaseViewController.swift in Sources */,
 				2FEA5C7D29F611CA006F68B1 /* MaltModel.swift in Sources */,
 				2FEA5C7529F610F1006F68B1 /* MethodModel.swift in Sources */,
+				2FEA5CE529F89A24006F68B1 /* HTTPMethod.swift in Sources */,
+				2FEA5CEB29F89D4B006F68B1 /* ViewModelling.swift in Sources */,
 				2FEA5C6A29F5EBD8006F68B1 /* BeerColectionViewCell.swift in Sources */,
 				2FEA5C7329F610B1006F68B1 /* VolumeModel.swift in Sources */,
+				2FEA5CE129F89A24006F68B1 /* URLParameterEnconding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

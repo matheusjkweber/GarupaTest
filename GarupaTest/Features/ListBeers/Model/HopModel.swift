@@ -5,7 +5,7 @@
 //  Created by Matheus Weber on 23/04/23.
 //
 
-class HopModel {
+struct HopModel: Codable {
     var name: String
     var amount: AmountModel
     var add: String

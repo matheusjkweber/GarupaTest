@@ -5,7 +5,7 @@
 //  Created by Matheus Weber on 23/04/23.
 //
 
-class MethodModel {
+struct MethodModel: Codable {
     var mashTemp: [MashTemp]
     var fermentation: FermentationModel
     var twist: String?
@@ -14,5 +14,11 @@ class MethodModel {
         self.mashTemp = mashTemp
         self.fermentation = fermentation
         self.twist = twist
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case mashTemp = "mash_temp"
+        case fermentation
+        case twist
     }
 }
