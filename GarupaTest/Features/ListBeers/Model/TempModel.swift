@@ -5,11 +5,11 @@
 //  Created by Matheus Weber on 23/04/23.
 //
 
-class TempModel {
+struct TempModel: Codable {
     var value: Int
-    var unit: String
+    var unit: UnitType
     
-    init(value: Int, unit: String) {
+    init(value: Int, unit: UnitType) {
         self.value = value
         self.unit = unit
     }

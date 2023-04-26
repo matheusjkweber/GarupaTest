@@ -18,6 +18,11 @@ protocol BeerDetailViewDelegate: AnyObject {
 }
 
 class BeerDetailViewModel: NSObject {
+    var beerModel: BeerModel
+    
+    init(beerModel: BeerModel) {
+        self.beerModel = beerModel
+    }
 }
 
 extension BeerDetailViewModel: UITableViewDelegate, UITableViewDataSource {

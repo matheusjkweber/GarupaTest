@@ -5,11 +5,11 @@
 //  Created by Matheus Weber on 23/04/23.
 //
 
-class MashTemp {
+struct MashTemp: Codable {
     var temp: TempModel
-    var duration: Int
+    var duration: Int?
     
-    init(temp: TempModel, duration: Int) {
+    init(temp: TempModel, duration: Int?) {
         self.temp = temp
         self.duration = duration
     }

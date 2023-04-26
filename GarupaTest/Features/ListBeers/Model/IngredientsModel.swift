@@ -5,7 +5,7 @@
 //  Created by Matheus Weber on 23/04/23.
 //
 
-class IngredientsModel {
+struct IngredientsModel: Codable {
     var malt: [MaltModel]
     var hops: [HopModel]
     var yeast: String
