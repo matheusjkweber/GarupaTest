@@ -24,13 +24,15 @@ class BeerDetailView: UIView, BeerDetailViewing {
     fileprivate lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Beer Title"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        titleLabel.textAlignment = .center
         return titleLabel
     }()
     
     fileprivate lazy var subtitleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Beer Subtitle"
+        titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.systemFont(ofSize: 16.0)
         return titleLabel
@@ -38,13 +40,15 @@ class BeerDetailView: UIView, BeerDetailViewing {
     
     fileprivate lazy var beerImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: Constants.beerTemplate))
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     fileprivate lazy var firstBrewedLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.text = "Beer Subtitle"
+        titleLabel.text = ""
         titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14.0)
         return titleLabel
     }()
@@ -243,7 +247,30 @@ class BeerDetailView: UIView, BeerDetailViewing {
         }
     }
     
-    func setup() {
+    func setup(name: String,
+               tagline: String,
+               beerImage: UIImage?,
+               firstBrewed: String,
+               description: String,
+               brewerTips: String,
+               contributedBy: String,
+               beerExtraInfoTableViewHeight: CGFloat,
+               ingredientsTableViewHeight: CGFloat,
+               foodPairingTableViewHeight: CGFloat) {
+        titleLabel.text = name
+        subtitleLabel.text = tagline
+        beerImageView.image = beerImage
+        firstBrewedLabel.text = "First Brewed: \(firstBrewed)"
+        descriptionLabel.text = description
+        brewerTipsLabel.text = brewerTips
+        contributedValueLabel.text = contributedBy
+        
+        if beerImage == nil {
+            emptyImageView()
+        }
+        setTableViewHeights(beerExtraInfoTableViewHeight: beerExtraInfoTableViewHeight,
+                            ingredientsTableViewHeight: ingredientsTableViewHeight,
+                            foodPairingTableViewHeight: foodPairingTableViewHeight)
         prepareTableViews()
     }
     
@@ -251,5 +278,35 @@ class BeerDetailView: UIView, BeerDetailViewing {
         self.delegate?.configureTableView(for: beerExtraInfoTableView, withType: .extraInfo)
         self.delegate?.configureTableView(for: ingredientsTableView, withType: .ingredients)
         self.delegate?.configureTableView(for: foodPairingTableView, withType: .foodPairing)
+    }
+    
+    private func emptyImageView() {
+        beerImageView.snp.remakeConstraints {
+            $0.top.equalTo(subtitleLabel.snp.bottom).offset(4.0)
+            $0.height.equalTo(0)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
+        }
+    }
+    
+    private func setTableViewHeights(beerExtraInfoTableViewHeight: CGFloat, ingredientsTableViewHeight: CGFloat, foodPairingTableViewHeight: CGFloat) {
+        beerExtraInfoTableView.snp.remakeConstraints {
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(8.0)
+            $0.height.equalTo(beerExtraInfoTableViewHeight)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.right.equalToSuperview().offset(-8.0)
+        }
+        
+        ingredientsTableView.snp.remakeConstraints {
+            $0.top.equalTo(ingredientsTitleLabel.snp.bottom).offset(8.0)
+            $0.height.equalTo(ingredientsTableViewHeight)
+            $0.left.right.equalToSuperview()
+        }
+        
+        foodPairingTableView.snp.remakeConstraints {
+            $0.top.equalTo(foodPairingTitleLabel.snp.bottom).offset(8.0)
+            $0.height.equalTo(foodPairingTableViewHeight)
+            $0.left.right.equalToSuperview()
+        }
     }
 }
