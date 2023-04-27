@@ -12,19 +12,23 @@ protocol BeerDetailViewing: UIView {
     func setup(name: String, tagline: String, beerImage: UIImage?, firstBrewed: String, description: String, brewerTips: String, contributedBy: String, beerExtraInfoTableViewHeight: CGFloat, ingredientsTableViewHeight: CGFloat, foodPairingTableViewHeight: CGFloat)
 }
 
-protocol BeerDetailViewModelling: ViewModelling {
+protocol BeerDetailViewModelling: ViewModelling, BeerDetailViewDelegate {
     var beerModel: BeerModel { get set }
+    var beerExtraInfoTableViewHeight: Int { get set }
+    var ingredientsTableViewHeight: Int { get set }
+    var foodPairingTableViewHeight: Int { get set }
+    var delegate: BeerDetailPresenterDelegate? { get set }
     
     func start()
 }
 
 class BeerDetailViewController: UIViewController {
-    private var viewModel: BeerDetailViewModel?
+    private var viewModel: BeerDetailViewModelling?
     private let mainView: BeerDetailViewing?
     
-    init(viewModel: BeerDetailViewModel) {
+    init(viewModel: BeerDetailViewModelling, mainView: BeerDetailViewing = BeerDetailView()) {
         self.viewModel = viewModel
-        self.mainView = BeerDetailView()
+        self.mainView = mainView
         super.init(nibName: nil, bundle: nil)
     }
     

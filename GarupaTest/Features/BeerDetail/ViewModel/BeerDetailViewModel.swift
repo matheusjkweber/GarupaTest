@@ -13,10 +13,6 @@ enum BeerDetailTableViewType: Int {
     case foodPairing = 2
 }
 
-protocol BeerDetailViewDelegate: AnyObject {
-    func configureTableView(for tableView: UITableView, withType type: BeerDetailTableViewType)
-}
-
 protocol BeerDetailPresenterDelegate: AnyObject {
     func fillUI()
 }

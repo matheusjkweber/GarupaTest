@@ -7,6 +7,18 @@
 
 import UIKit
 
+protocol ListBeersServicing: AnyObject {
+    var manager: NetworkManager { get }
+    
+    func getBeers(page: Int,
+                  limit: Int,
+                  success: @escaping (_ beersModel: [BeerModel]) -> (),
+                  failure: @escaping (_ error: NetworkResponse) -> ())
+    func getImage(imageURL: URL,
+                  success: @escaping (_ imageData: Data) -> (),
+                  failure: @escaping (_ error: NetworkResponse) -> ())
+}
+
 protocol ListBeersPresenterDelegate: AnyObject {
     func presentBeerDetail(withViewModel: BeerDetailViewModel)
     func updateState(state: ViewState<ButtonAction>)
@@ -21,7 +33,7 @@ class ListBeersViewModel: NSObject, ListBeersViewModelling {
     private var page = 1
     private let limit = 25
     
-    private let service: ListBeersService
+    private let service: ListBeersServicing
     private var activeCollectionView: UICollectionView?
     weak var delegate: ListBeersPresenterDelegate?
     private var beers = [BeerModel]()
@@ -32,7 +44,7 @@ class ListBeersViewModel: NSObject, ListBeersViewModelling {
         }
     }
     
-    init(service: ListBeersService) {
+    init(service: ListBeersServicing) {
         self.service = service
         self.state = .success
     }
