@@ -6,9 +6,9 @@
 //
 
 struct FermentationModel: Codable {
-    var temp: TempModel
+    var temp: TempModel?
     
-    init(temp: TempModel) {
+    init(temp: TempModel?) {
         self.temp = temp
     }
 }

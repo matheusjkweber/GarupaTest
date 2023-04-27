@@ -10,6 +10,7 @@ import UIKit
 protocol ListBeersPresenterDelegate: AnyObject {
     func presentBeerDetail(withViewModel: BeerDetailViewModel)
     func updateState(state: ViewState<ButtonAction>)
+    func presentToastWith(message: String)
 }
 
 protocol ListBeersViewDelegate: AnyObject {
@@ -17,6 +18,9 @@ protocol ListBeersViewDelegate: AnyObject {
 }
 
 class ListBeersViewModel: NSObject, ListBeersViewModelling {
+    private var page = 1
+    private let limit = 25
+    
     private let service: ListBeersService
     private var activeCollectionView: UICollectionView?
     weak var delegate: ListBeersPresenterDelegate?
@@ -39,20 +43,25 @@ class ListBeersViewModel: NSObject, ListBeersViewModelling {
     
     private func populateBeers() {
         state = .loading
-        service.getBeers { beers in
+        service.getBeers(page: page, limit: limit, success: { beers in
             DispatchQueue.main.async {
                 self.state = .success
-                self.beers = beers
+                self.beers += beers
                 self.reloadCollectionView()
                 self.downloadImages()
             }
-        } failure: { error in
+        }, failure: { error in
             DispatchQueue.main.async {
-                self.state = .requestError({
-                    self.populateBeers()
-                })
+                if self.page == 0 {
+                    self.state = .requestError({
+                        self.populateBeers()
+                    })
+                } else {
+                    self.delegate?.presentToastWith(message: Constants.defaultErrorText)
+                }
             }
-        }
+        })
+        self.delegate?.presentToastWith(message: Constants.defaultErrorText)
     }
     
     private func reloadCollectionView() {
@@ -69,15 +78,16 @@ class ListBeersViewModel: NSObject, ListBeersViewModelling {
     private func downloadImages() {
         for i in (0...beers.count - 1) {
             if let url = URL(string: beers[i].imageUrl) {
-                service.getImage(imageURL: url) { data in
-                    self.beers[i].downloadedImage = UIImage(data: data)
-                    DispatchQueue.main.async {
-                        self.reload(row: i)
+                if beers[i].downloadedImage == nil {
+                    service.getImage(imageURL: url) { data in
+                        self.beers[i].downloadedImage = UIImage(data: data)
+                        DispatchQueue.main.async {
+                            self.reload(row: i)
+                        }
+                    } failure: { _ in
+                        self.beers[i].downloadedImage = UIImage(named: Constants.beerTemplate)
                     }
-                } failure: { _ in
-                    self.beers[i].downloadedImage = UIImage(named: Constants.beerTemplate)
                 }
-
             }
         }
     }
@@ -109,6 +119,13 @@ extension ListBeersViewModel: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.delegate?.presentBeerDetail(withViewModel: BeerDetailViewModel(beerModel: beers[indexPath.row]))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == beers.count - 1 {
+            page += 1
+            populateBeers()
+        }
     }
 }
 

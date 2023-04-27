@@ -53,6 +53,7 @@
 		2FEA5CE729F89A24006F68B1 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CDD29F89A24006F68B1 /* EndPointType.swift */; };
 		2FEA5CE929F89B01006F68B1 /* ListBeersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CE829F89B01006F68B1 /* ListBeersService.swift */; };
 		2FEA5CEB29F89D4B006F68B1 /* ViewModelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CEA29F89D4B006F68B1 /* ViewModelling.swift */; };
+		2FEA5CEE29FAE835006F68B1 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA5CED29FAE835006F68B1 /* ToastView.swift */; };
 		524C84E9F4C6B05011654B4C /* libPods-GarupaTest-GarupaTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1846AD67BDC0830FD166236 /* libPods-GarupaTest-GarupaTestTests.a */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,7 @@
 		2FEA5CDD29F89A24006F68B1 /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		2FEA5CE829F89B01006F68B1 /* ListBeersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBeersService.swift; sourceTree = "<group>"; };
 		2FEA5CEA29F89D4B006F68B1 /* ViewModelling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelling.swift; sourceTree = "<group>"; };
+		2FEA5CED29FAE835006F68B1 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		4EE2BBCFE5D4F6DE2488862E /* libPods-GarupaTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GarupaTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB5E6A962F8FEDE65AE3732 /* Pods-GarupaTest-GarupaTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GarupaTest-GarupaTestTests.debug.xcconfig"; path = "Target Support Files/Pods-GarupaTest-GarupaTestTests/Pods-GarupaTest-GarupaTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95556E771A8A5BAE36653533 /* Pods-GarupaTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GarupaTest.release.xcconfig"; path = "Target Support Files/Pods-GarupaTest/Pods-GarupaTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 		2FEA5C6629F5E7FC006F68B1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2FEA5CEC29FAE82B006F68B1 /* Toast */,
 				2FEA5CC529F88B44006F68B1 /* System */,
 				2FEA5C6729F5E809006F68B1 /* ScreenSize.swift */,
 				2FEA5C6C29F60AC9006F68B1 /* Constants.swift */,
@@ -422,6 +425,14 @@
 				2FEA5CDD29F89A24006F68B1 /* EndPointType.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2FEA5CEC29FAE82B006F68B1 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				2FEA5CED29FAE835006F68B1 /* ToastView.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		694C8E58F81BF24068EF0545 /* Pods */ = {
@@ -647,6 +658,7 @@
 				2FEA5C6029F5DFCF006F68B1 /* ListBeersViewController.swift in Sources */,
 				2FEA5CBD29F83702006F68B1 /* BeerDetailViewModel.swift in Sources */,
 				2FEA5CE729F89A24006F68B1 /* EndPointType.swift in Sources */,
+				2FEA5CEE29FAE835006F68B1 /* ToastView.swift in Sources */,
 				2FEA5CE429F89A24006F68B1 /* HTTPTask.swift in Sources */,
 				2FEA5C2729F5DD0D006F68B1 /* AppDelegate.swift in Sources */,
 				2FEA5CE029F89A24006F68B1 /* JSONParameterEncoder.swift in Sources */,

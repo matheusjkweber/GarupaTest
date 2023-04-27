@@ -10,7 +10,7 @@
 import Foundation
 
 public enum GarupaEndpoint {
-    case getBeers
+    case getBeers(Int, Int)
     case getImage(URL)
 }
 
@@ -41,6 +41,15 @@ extension GarupaEndpoint: EndPointType {
             return "beers"
         default:
             return ""
+        }
+    }
+    
+    var queryParams: [URLQueryItem] {
+        switch self {
+        case .getBeers(let page, let limit):
+            return [URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "per_page", value: "\(limit)")]
+        default:
+            return []
         }
     }
     

@@ -14,7 +14,7 @@ enum RequestError: Error {
 }
 public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
-protocol NetworkRouter: class {
+protocol NetworkRouter: AnyObject {
     associatedtype EndPoint: EndPointType
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
     func cancel()
@@ -41,13 +41,16 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     }
     
     fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
-        guard let url = route.specificURL != nil ? route.specificURL : route.baseURL.appendingPathComponent(route.path) else {
+        guard var url = route.specificURL != nil ? route.specificURL : route.baseURL.appendingPathComponent(route.path) else {
             throw RequestError.urlNil
         }
+        url.append(queryItems: route.queryParams)
+        
         
         var request = URLRequest(url: url,
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10.0)
+        
         
         request.httpMethod = route.httpMethod.rawValue
         do {

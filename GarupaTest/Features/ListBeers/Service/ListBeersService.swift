@@ -14,10 +14,12 @@ class ListBeersService {
         self.manager = manager
     }
     
-    func getBeers(success: @escaping (_ beersModel: [BeerModel]) -> (),
+    func getBeers(page: Int,
+                  limit: Int,
+                  success: @escaping (_ beersModel: [BeerModel]) -> (),
                   failure: @escaping (_ error: NetworkResponse) -> ()) {
         
-        manager.request(request: GarupaEndpoint.getBeers, success: { (response: [BeerModel]) in
+        manager.request(request: GarupaEndpoint.getBeers(page, limit), success: { (response: [BeerModel]) in
             success(response)
         }) { (error) in
             failure(error)

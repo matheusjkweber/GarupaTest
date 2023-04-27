@@ -6,10 +6,10 @@
 //
 
 struct TempModel: Codable {
-    var value: Int
-    var unit: UnitType
+    var value: Int?
+    var unit: UnitType?
     
-    init(value: Int, unit: UnitType) {
+    init(value: Int?, unit: UnitType?) {
         self.value = value
         self.unit = unit
     }
