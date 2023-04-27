@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol BeerDetailViewDelegate: AnyObject {
+    func configureTableView(for tableView: UITableView, withType type: BeerDetailTableViewType)
+}
+
 class BeerDetailView: UIView, BeerDetailViewing {
     weak var delegate: BeerDetailViewDelegate?
     

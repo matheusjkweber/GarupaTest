@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ListBeersService {
+class ListBeersService: ListBeersServicing {
     let manager: NetworkManager
     
     init(manager: NetworkManager) {
