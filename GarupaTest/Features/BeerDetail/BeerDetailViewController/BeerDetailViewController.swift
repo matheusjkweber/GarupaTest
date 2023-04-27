@@ -9,7 +9,13 @@ import UIKit
 
 protocol BeerDetailViewing: UIView {
     var delegate: BeerDetailViewDelegate? { get set }
-    func setup()
+    func setup(name: String, tagline: String, beerImage: UIImage?, firstBrewed: String, description: String, brewerTips: String, contributedBy: String, beerExtraInfoTableViewHeight: CGFloat, ingredientsTableViewHeight: CGFloat, foodPairingTableViewHeight: CGFloat)
+}
+
+protocol BeerDetailViewModelling: ViewModelling {
+    var beerModel: BeerModel { get set }
+    
+    func start()
 }
 
 class BeerDetailViewController: UIViewController {
@@ -41,6 +47,25 @@ class BeerDetailViewController: UIViewController {
     
     private func linkViewModel() {
         mainView?.delegate = viewModel
-        mainView?.setup()
+        viewModel?.delegate = self
+        viewModel?.start()
+    }
+}
+
+extension BeerDetailViewController: BeerDetailPresenterDelegate {
+    func fillUI() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        mainView?.setup(name: viewModel.beerModel.name,
+                        tagline: viewModel.beerModel.tagline,
+                        beerImage: viewModel.beerModel.downloadedImage,
+                        firstBrewed: viewModel.beerModel.firstBrewed,
+                        description: viewModel.beerModel.description,
+                        brewerTips: viewModel.beerModel.brewersTips,
+                        contributedBy: viewModel.beerModel.contributedBy,
+                        beerExtraInfoTableViewHeight: CGFloat(viewModel.beerExtraInfoTableViewHeight),
+                        ingredientsTableViewHeight: CGFloat(viewModel.ingredientsTableViewHeight),
+                        foodPairingTableViewHeight: CGFloat(viewModel.foodPairingTableViewHeight))
     }
 }

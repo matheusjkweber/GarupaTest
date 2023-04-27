@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol ListBeersPresenterDelegate: AnyObject {
-    func presentBeerDetail(withViewModel: BeerDetailViewModel)
-    func updateState(state: ViewState<ButtonAction>)
-}
-
 protocol ListBeersViewing: UIView {
     var delegate: ListBeersViewDelegate? { get set }
     func setup()
