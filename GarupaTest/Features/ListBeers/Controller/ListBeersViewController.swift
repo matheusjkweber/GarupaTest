@@ -59,4 +59,9 @@ extension ListBeersViewController: ListBeersPresenterDelegate {
     func presentBeerDetail(withViewModel viewModel: BeerDetailViewModel) {
         self.navigationController?.pushViewController(BeerDetailViewController(viewModel: viewModel), animated: true)
     }
+    
+    
+    func presentToastWith(message: String) {
+        showMessage(message: message)
+    }
 }

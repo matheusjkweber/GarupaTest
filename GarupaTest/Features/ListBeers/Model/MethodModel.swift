@@ -7,10 +7,10 @@
 
 struct MethodModel: Codable {
     var mashTemp: [MashTemp]
-    var fermentation: FermentationModel
+    var fermentation: FermentationModel?
     var twist: String?
     
-    init(mashTemp: [MashTemp], fermentation: FermentationModel, twist: String?) {
+    init(mashTemp: [MashTemp], fermentation: FermentationModel?, twist: String?) {
         self.mashTemp = mashTemp
         self.fermentation = fermentation
         self.twist = twist

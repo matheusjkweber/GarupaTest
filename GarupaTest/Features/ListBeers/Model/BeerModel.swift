@@ -31,7 +31,7 @@ struct BeerModel: Codable {
     var attenuationLevel: Float?
     var volume: VolumeModel
     var boilVolume: VolumeModel
-    var method: MethodModel
+    var method: MethodModel?
     var ingredients: IngredientsModel
     var foodPairing: [String]
     var brewersTips: String
@@ -39,7 +39,7 @@ struct BeerModel: Codable {
     
     var downloadedImage: UIImage? = nil
     
-    init(id: Int, name: String, tagline: String, firstBrewed: String, description: String, imageUrl: String, abv: Float?, ibu: Float?, targetFG: Float?, targetOG: Float?, ebc: Float?, srm: Float?, ph: Float?, attenuationLevel: Float?, volume: VolumeModel, boilVolume: VolumeModel, method: MethodModel, ingredients: IngredientsModel, foodPairing: [String], brewerTips: String, contributedBy: String) {
+    init(id: Int, name: String, tagline: String, firstBrewed: String, description: String, imageUrl: String, abv: Float?, ibu: Float?, targetFG: Float?, targetOG: Float?, ebc: Float?, srm: Float?, ph: Float?, attenuationLevel: Float?, volume: VolumeModel, boilVolume: VolumeModel, method: MethodModel?, ingredients: IngredientsModel, foodPairing: [String], brewerTips: String, contributedBy: String) {
         self.id = id
         self.name = name
         self.tagline = tagline
